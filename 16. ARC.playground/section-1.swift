@@ -216,12 +216,17 @@ class CreditCard
 class Country
 {
 	let name: String
-	let capitalCity: City!
+    // Immutable (let) properties in struct and class initializers have been revised to standardize
+    // on a general “lets are singly initialized but never reassigned or mutated” model. Previously,
+    // they were completely mutable within the body of initializers. Now, they are only allowed to 
+    // be assigned to once to provide their value. If the property has an initial value in its 
+    // declaration, that counts as the initial value for all initializers.
+	var capitalCity: City!
 	
 	init(name: String, capitalName: String)
 	{
 		self.name = name
-		self.capitalCity = City(name: capitalName, country: self)
+        self.capitalCity = City(name: capitalName, country: self)
 	}
 }
 

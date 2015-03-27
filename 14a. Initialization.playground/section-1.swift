@@ -67,7 +67,7 @@ let freezingPointOfWater = Celsius(kelvin: 273.15)
 // name generation and one that opts out:
 struct Color
 {
-	let red = 0.0, green = 0.0, blue = 0.0
+    let red: Double, green: Double, blue: Double
 	
 	// This initializer will make use of automatically generated exernal names
 	init(red: Double, green: Double, blue: Double)
@@ -122,9 +122,9 @@ class SurveyQuestion2
 	
 	init(text: String)
 	{
-		// Initializing the constant, 'text', even though it has a default value, we can modify
-		// that default value here
-		self.text = text
+		// Initializing the constant, 'text',  it has a default value, we can't modify
+		// that default value here. It is different from the previous versions
+		// self.text = text
 	}
 	
 	init()

@@ -54,7 +54,7 @@ protocol someProtocolForProperties
 	
 	// A type property always uses 'class'. This is the case even if adopted by a structure or
 	// enumeration which will use 'static' when conforming to the protocol's property.
-	class var someTypeProperty: Int { get set }
+	static var someTypeProperty: Int { get set }
 }
 
 // Let's create a more practical protocol that we can actually conform to:
@@ -326,12 +326,12 @@ class Circle: HasArea
 {
 	let pi = 3.14159
 	var radius: Double
-	var area: Double { return pi * radius * radius }
+	@objc var area: Double { return pi * radius * radius }
 	init(radius: Double) { self.radius = radius }
 }
 class Country: HasArea
 {
-	var area: Double
+	@objc var area: Double
 	init(area: Double) { self.area = area }
 }
 class Animal
@@ -400,7 +400,7 @@ objects[2] is HasArea
 			count += amount
 		}
 		// If not, does it conform to the fixedIncrement variable requirement?
-		else if let amount = dataSource?.fixedIncrement?
+		else if let amount = dataSource?.fixedIncrement
 		{
 			count += amount
 		}
